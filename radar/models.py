@@ -35,6 +35,9 @@ class BaseRadares(models.Model):
     emme_gid    = models.IntegerField(blank=True, null=True)
     mdc_gid     = models.IntegerField(blank=True, null=True)
 
+    def __unicode__(self):
+        return u'%s'% self.id
+
     class Meta:
         # managed = False
         db_table = 'base_radares'
@@ -52,6 +55,9 @@ class Trajetos(models.Model):
     v0          = models.IntegerField(blank=True, null=True)
     v1          = models.IntegerField(blank=True, null=True)
 
+    def __unicode__(self):
+        return u'%s'% self.id
+
     class Meta:
         # managed = False
         db_table = 'trajetos'
@@ -67,6 +73,9 @@ class Viagens(models.Model):
     final       = models.IntegerField(blank=True, null=True)
     tipo        = models.IntegerField(blank=True, null=True, choices=TIPO_CHOICES)
 
+    def __unicode__(self):
+        return u'%s'% self.id
+
     class Meta:
         # managed = False
         db_table = 'viagens'
@@ -81,6 +90,9 @@ class Contagens(models.Model):
     contagem    = models.IntegerField(blank=True, null=True)
     autuacoes   = models.IntegerField(blank=True, null=True)
     placas      = models.IntegerField(blank=True, null=True)
+
+    def __unicode__(self):
+        return u'%s'% self.id
 
     class Meta:
         # managed = False
