@@ -35,8 +35,8 @@ class BaseRadares(models.Model):
     emme_gid    = models.IntegerField(blank=True, null=True)
     mdc_gid     = models.IntegerField(blank=True, null=True)
 
-    # def __unicode__(self):
-    #     return u'%s'% self.id
+    def __unicode__(self):
+        return u'%s'% self.id
 
     class Meta:
         # managed = False
@@ -45,8 +45,8 @@ class BaseRadares(models.Model):
 class Trajetos(models.Model):
 
     gid         = models.AutoField(primary_key=True)
-    id          = models.IntegerField(blank=True, null=True)
-    viagem_id   = models.IntegerField(blank=True, null=True)
+    id          = models.IntegerField(blank=True, null=True, )
+    viagem_id   = models.IntegerField(blank=True, null=True, help_text='ID da Viagem', verbose_name='ID Viagem')
     tipo        = models.IntegerField(blank=True, null=True, choices=TIPO_CHOICES)
     data_inicio = models.DateTimeField(null=True, blank=True)
     data_final  = models.DateTimeField(null=True, blank=True)

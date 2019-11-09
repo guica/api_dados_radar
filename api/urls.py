@@ -1,7 +1,10 @@
 from django.conf.urls import url
-from .views import FilterView
+from .views import RadaresView, ContagemView, TrajetosView, ViagensView
 
 
 urlpatterns = [
-    url(r'^radares/', FilterView.as_view()),
+    url(r'^radares/', RadaresView.as_view()),
+    url(r'^contagens/', ContagemView.as_view()),
+    url(r'^trajetos/', TrajetosView.as_view()),
+    url(r'^viagens/', ViagensView.as_view()),
 ]

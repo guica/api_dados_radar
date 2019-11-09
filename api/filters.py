@@ -1,5 +1,5 @@
 import django_filters
-from radar.models import BaseRadares
+from radar.models import BaseRadares, Contagens, Viagens, Trajetos
 
 def filter_enquadramento(queryset, name, value):
 	if not value:
@@ -20,3 +20,21 @@ class RadarFilter(django_filters.rest_framework.FilterSet):
 	class Meta:
 		model = BaseRadares
 		fields = '__all__'
+
+
+class ContagensFilter(django_filters.rest_framework.FilterSet):
+	class Meta:
+		model = Contagens
+		fields = ['localidade', 'tipo']
+
+
+class ViagensFilter(django_filters.rest_framework.FilterSet):
+	class Meta:
+		model = Viagens
+		fields = ['tipo']
+
+
+class TrajetosFilter(django_filters.rest_framework.FilterSet):
+	class Meta:
+		model = Trajetos
+		fields = ['viagem_id','tipo','origem','destino']
