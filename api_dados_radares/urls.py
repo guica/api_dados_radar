@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework_swagger.views import get_swagger_view
+from django.conf.urls.static import static
+from django.conf import settings
 
 schema_view = get_swagger_view(
     title='Server Monitoring API',
@@ -29,4 +31,4 @@ urlpatterns = [
     url(r'^api/v1/',include('api.urls')),
     # url(r'^api/', include('api.urls')),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
