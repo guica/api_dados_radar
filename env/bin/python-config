@@ -1,4 +1,4 @@
-#!/home/gc/Documents/Projects/retina/radartona/env/bin/python
+#!/home/gc/Documents/Projects/retina/api_dados_radar/env/bin/python
 
 import sys
 import getopt

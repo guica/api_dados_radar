@@ -57,7 +57,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/gc/Documents/Projects/retina/radartona/env"
+set -gx VIRTUAL_ENV "/home/gc/Documents/Projects/retina/api_dados_radar/env"
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
 if test (echo $FISH_VERSION | tr "." "\n")[1] -lt 3
