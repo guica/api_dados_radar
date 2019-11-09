@@ -1,14 +1,18 @@
 from rest_framework import serializers
-from .models import Songs
 from radar.models import BaseRadares
 
-
-class SongsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Songs
-        fields = ("title", "artist")
 
 class BaseRadaresSerializer(serializers.ModelSerializer):
     class Meta:
         model = BaseRadares
-        fields = ('__all__')
+        fields = '__all__'
+
+class LocalizacaoRadarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BaseRadares
+        fields = ['codigo', 'endereco']
+
+class EnquadramentoRadarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BaseRadares
+        fields = '__all__'

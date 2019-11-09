@@ -35,8 +35,8 @@ class BaseRadares(models.Model):
     emme_gid    = models.IntegerField(blank=True, null=True)
     mdc_gid     = models.IntegerField(blank=True, null=True)
 
-    def __unicode__(self):
-        return u'%s'% self.id
+    # def __unicode__(self):
+    #     return u'%s'% self.id
 
     class Meta:
         # managed = False
