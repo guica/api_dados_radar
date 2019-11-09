@@ -51,7 +51,7 @@ class EnquadramentoRadarView(generics.ListAPIView):
 class FilterView(generics.ListAPIView):
     filter_backends = [DjangoFilterBackend]
     filter_class = RadarFilter
-    queryset = ''
+    queryset = BaseRadares.objects.all()
     # filter_fields = ['lote', 'tipo_equip', 'qtde_fxs_f', 'velocidade', 'ligado', ]
     serializer_class = BaseRadaresSerializer
     
