@@ -1,87 +1,45 @@
-# Project Title
 
-One Paragraph of project description goes here
+# API para Dados de Radares
 
-## Getting Started
+## Começando
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. Consulte implantação para obter notas sobre como implantar o projeto em um sistema em ambiente de produção.
 
-### Prerequisites
+### Pré-requisitos
 
-What things you need to install the software and how to install them
+-   Docker
+-   docker-compose
 
-```
-Give examples
-```
+Install  [Docker](https://docs.docker.com/engine/installation/)  and  [Docker compose](https://docs.docker.com/compose/install/)
 
-### Installing
+### Instalando
+Clone o repositório e entre no seu diretório
+`git clone https://github.com/guica/api_dados_radar.git`
+`cd api_dados_radar`
 
-A step by step series of examples that tell you how to get a development env running
+Construa a imagem em Docker, suba o container e entre nele
+`sudo docker-compose build`
+`sudo docker-compose up -d`
+`sudo docker-compose exec web bash`
 
-Say what the step will be
+Crie um super-usuário:
+`python manage.py createsuperuser`
 
-```
-Give the example
-```
+Entre em http://localhost:8000/admin e  faça seu login. Depois, entre em http://localhost:8000/docs para ver a documentação da API. 
 
-And repeat
 
-```
-until finished
-```
+## Contruido com
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* Python 2.7
+* Django 1.11.8
+* Django Rest Framework
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Guilherme Camargo**  - [LinkedIn]([https://www.linkedin.com/in/guilherme-camargo-82029b142/](https://www.linkedin.com/in/guilherme-camargo-82029b142/))
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Paulo Henrique da Silveira** - [LinkedIn]([[https://www.linkedin.com/in/phsilveira/](https://www.linkedin.com/in/phsilveira/)](https://www.linkedin.com/in/guilherme-camargo-82029b142/))
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
