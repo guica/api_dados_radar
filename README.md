@@ -14,18 +14,28 @@ Install  [Docker](https://docs.docker.com/engine/installation/)  and  [Docker co
 
 ### Instalando
 Clone o repositório e entre no seu diretório
+
 `git clone https://github.com/guica/api_dados_radar.git`
+
 `cd api_dados_radar`
 
+Crie um arquivo .env:
+
+`touch .env`
+
 Construa a imagem em Docker, suba o container e entre nele
+
 `sudo docker-compose build`
+
 `sudo docker-compose up -d`
+
 `sudo docker-compose exec web bash`
 
 Crie um super-usuário:
+
 `python manage.py createsuperuser`
 
-Entre em http://localhost:8000/admin e  faça seu login. Depois, entre em http://localhost:8000/docs para ver a documentação da API. 
+Entre em http://localhost:8000/admin e faça seu login. Você pode usar essa interface para navegar e explorar os dados. Depois, entre em http://localhost:8000/docs para ver a documentação da API. 
 
 
 ## Contruido com
@@ -36,9 +46,9 @@ Entre em http://localhost:8000/admin e  faça seu login. Depois, entre em http:/
 
 ## Authors
 
-* **Guilherme Camargo**  - [LinkedIn]([https://www.linkedin.com/in/guilherme-camargo-82029b142/](https://www.linkedin.com/in/guilherme-camargo-82029b142/))
+* **Guilherme Camargo**  - [LinkedIn](https://www.linkedin.com/in/guilherme-camargo-82029b142/)
 
-* **Paulo Henrique da Silveira** - [LinkedIn]([[https://www.linkedin.com/in/phsilveira/](https://www.linkedin.com/in/phsilveira/)](https://www.linkedin.com/in/guilherme-camargo-82029b142/))
+* **Paulo Henrique da Silveira** - [LinkedIn](https://www.linkedin.com/in/phsilveira/)
 
 ## License
 
