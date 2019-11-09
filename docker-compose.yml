@@ -1,0 +1,74 @@
+version: '2'
+
+services:
+
+  web: &django
+    restart: always
+    build: .
+    # command: 'gunicorn owl.wsgi:application -w 5 -b :8000 --log-level=debug --timeout 90'
+    # command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    env_file: '.env'
+    environment:
+      - DJANGO_SETTINGS_MODULE=owl.settings.stag
+    volumes:
+      - .:/code
+    expose:
+      - "8000"
+    depends_on:
+      - redis
+
+  nginx:
+    restart: always
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - .:/code
+      - ./conf/nginx:/etc/nginx/conf.d
+      - ./owl/static:/static
+      - ./owl/media:/media
+    depends_on:
+      - web
+
+  celeryworker:
+    <<: *django
+    depends_on:
+      - redis
+    command: 'python -m celery -A owl worker -l info -c 1 -Q priority_queue -P eventlet -c 40'
+
+  celeryworker2:
+    <<: *django
+    depends_on:
+      - redis
+    command: 'python -m celery -A owl worker -l info -c 3 -Q default'
+
+  celeryworker3:
+    <<: *django
+    depends_on:
+      - redis
+    command: 'python -m celery -A owl worker -l info -c 3 -Q medium_queue'
+    
+  flower:
+    <<: *django
+    depends_on:
+      - redis
+    ports:
+      - "5555:5555"
+    command: 'python -m celery -A owl flower'
+
+  celerybeat:
+    <<: *django
+    depends_on:
+      - redis
+    command: 'python -m celery -A owl beat -l info --pid='
+    
+  redis:
+    restart: always
+    container_name: 'redis'
+    image: 'redis'
+    ports:
+      - '6379:6379'
+    volumes:
+      - './redisdata:/data'
+
