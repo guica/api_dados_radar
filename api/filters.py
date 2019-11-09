@@ -16,11 +16,6 @@ def filter_enquadramento(queryset, name, value):
 
 class RadarFilter(django_filters.rest_framework.FilterSet):
 	enquadrame = django_filters.CharFilter(method=filter_enquadramento)
-	# lote = django_filters.NumberFilter()
-	# tipo_equip = django_filters.CharFilter()
-	# qtde_fxs_f = django_filters.NumberFilter()
-	# velocidade = django_filters.CharFilter()
-	# ligado = django_filters.NumberFilter()
 
 	class Meta:
 		model = BaseRadares
