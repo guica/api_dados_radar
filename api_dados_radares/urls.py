@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 schema_view = get_swagger_view(
-    title='API para Dados de Radares - SP',
+    title=u'Radartona API - Dando Acesso Universal para os Dados de Radares da cidade de Sao Paulo',
     url='/',
     # patterns=schema_url_patterns,
 )

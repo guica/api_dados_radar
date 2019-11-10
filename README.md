@@ -1,5 +1,14 @@
-
+![radartona](https://github.com/guica/api_dados_radar/blob/master/media/admin-interface/logo/75125107_2420153768241552_3174633533629005824_o.png?raw=true)
 # API para Dados de Radares
+
+## Apresentação
+
+![apresentacao](https://github.com/guica/api_dados_radar/blob/master/media/Swagger-UI.gif)
+
+## Acesso para o Ambiente de homologação
+
+API - http://radartona.portalretina.com/docs/
+Front - http://radartona.portalretina.com/admin/
 
 ## Começando
 
@@ -37,6 +46,12 @@ Crie um super-usuário:
 
 Entre em http://localhost:8000/admin e faça seu login. Você pode usar essa interface para navegar e explorar os dados. Depois, entre em http://localhost:8000/docs para ver a documentação da API. 
 
+## TODO
+
+- Melhorar Segurança
+- HTTPS
+- Throttle e logs de uso
+
 
 ## Contruido com
 
@@ -45,6 +60,7 @@ Entre em http://localhost:8000/admin e faça seu login. Você pode usar essa int
 * Django Rest Framework
 * Docker
 * Docker-Compose
+* Nginx
 
 ## Authors
 
