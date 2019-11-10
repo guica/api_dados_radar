@@ -51,24 +51,35 @@ Crie um super-usuário:
 
 Entre em http://localhost:8000/admin e faça seu login. Você pode usar essa interface para navegar e explorar os dados. Depois, entre em http://localhost:8000/docs para ver a documentação da API. 
 
+## Arquitetura
+
+### [MTV](https://towardsdatascience.com/working-structure-of-django-mtv-architecture-a741c8c64082) (Model, View e Template) estrutura de componentização no framework Django
+![mvt](https://miro.medium.com/max/1200/0*8ZFh-CsrMi7bQG0O.jpg)
+
+### UML do Banco de Dados
+![apresentacao](https://github.com/guica/api_dados_radar/blob/master/media/uml.png)
+
+
 ## TODO
 
-- Melhorar Segurança
-- Melhorar Escalabilidade
-- HTTPS
-- Throttle e logs de uso
-
+- Melhorar Segurança (integrar OAuth 2.0, HTTPS, Logs de uso e Throttle)
+- Melhorar Escalabilidade (testes de estresse na solução)
+- Estruturação de dados (descrições dos parâmetros, rever estrutura de dados e sanity checks)
 
 ## Contruido com
 
 * Python 2.7
-* Django 1.11.8
-* Django Rest Framework
-* Docker
+* [Django](https://www.djangoproject.com/) 1.11.8
+* [Django Rest Framework](https://www.django-rest-framework.org/)
+* [Docker](https://www.docker.com/)
 * Docker-Compose
+* Celery
 * Nginx
+* Postgres
+* Sqlite3
+* Redis
 
-## Authors
+## Autores
 
 * **Guilherme Camargo**  - [LinkedIn](https://www.linkedin.com/in/guilherme-camargo-82029b142/)
 
