@@ -11,6 +11,7 @@ contextlib2==0.6.0.post1
 coreapi==2.3.3
 coreschema==0.0.4
 decorator==4.4.1
+defusedxml==0.6.0
 Django==1.11.8
 django-admin-interface==0.11.2
 django-colorfield==0.1.15
@@ -19,6 +20,7 @@ django-flat-responsive==2.0
 django-flat-theme==1.1.4
 django-rest-swagger==2.2.0
 djangorestframework==3.9.4
+djangorestframework-xml==1.4.0
 enum34==1.1.6
 flower==0.9.3
 futures==3.3.0
