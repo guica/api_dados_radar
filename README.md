@@ -43,6 +43,8 @@ Entre em http://localhost:8000/admin e faça seu login. Você pode usar essa int
 * Python 2.7
 * Django 1.11.8
 * Django Rest Framework
+* Docker
+* Docker-Compose
 
 ## Authors
 
