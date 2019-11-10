@@ -19,23 +19,26 @@ services:
       - DJANGO_SETTINGS_MODULE=api_dados_radares.settings
     volumes:
       - .:/code
-    # expose:
-    #   - "8000"
-    ports:
-      - '8000:8000'
+    expose:
+      - "8000"
+    # ports:
+    #   - '8000:8000'
     depends_on:
       - redis
 
-  # nginx:
-  #   restart: always
-  #   image: nginx:latest
-  #   ports:
-  #     - "80:80"
-  #   volumes:
-  #     - .:/code
-  #     - ./conf/nginx:/etc/nginx/conf.d
-  #   depends_on:
-  #     - web
+  nginx:
+    restart: always
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - .:/code
+      - ./conf/nginx:/etc/nginx/conf.d
+      - ./static:/static
+      - ./media:/media
+    depends_on:
+      - web
+
 
   # celeryworker:
   #   <<: *django
