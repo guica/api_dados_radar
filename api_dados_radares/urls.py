@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 schema_view = get_swagger_view(
-    title='Server Monitoring API',
+    title='API para Dados de Radares - SP',
     url='/',
     # patterns=schema_url_patterns,
 )
