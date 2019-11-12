@@ -6,6 +6,8 @@
 
 ![apresentacao](https://github.com/guica/api_dados_radar/blob/master/media/Swagger-UI.gif)
 
+Slides - https://docs.google.com/presentation/d/1Wh3uLDF66x8tkwyF42uuZY1rVi9e6LFNCizsGW94UvQ/edit?usp=sharing
+
 ## Acesso para o Ambiente de homologação
 
 API - http://radartona.portalretina.com/docs/
