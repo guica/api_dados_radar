@@ -21,6 +21,7 @@ django-flat-theme==1.1.4
 django-rest-swagger==2.2.0
 djangorestframework==3.9.4
 djangorestframework-xml==1.4.0
+drf-tracking==1.5.0
 enum34==1.1.6
 flower==0.9.3
 futures==3.3.0

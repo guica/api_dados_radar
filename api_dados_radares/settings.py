@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'api',
     'radar',
     'django_filters',
+    'rest_framework_tracking',
 ]
 
 MIDDLEWARE = [

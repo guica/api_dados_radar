@@ -7,6 +7,7 @@ from radar.models import BaseRadares, Contagens, Trajetos, Viagens
 
 from .serializers import BaseRadaresSerializer, ContagensSerializer, TrajetosSerializer, ViagensSerializer
 from rest_framework import generics
+from rest_framework_tracking.mixins import LoggingMixin
 
 from django_filters.rest_framework import DjangoFilterBackend
 from .filters import RadarFilter, ContagensFilter, TrajetosFilter, ViagensFilter
@@ -22,7 +23,7 @@ class RadaresView(generics.ListAPIView):
     serializer_class = BaseRadaresSerializer
 
 
-class ContagemView(generics.ListAPIView):
+class ContagemView(LoggingMixin, generics.ListAPIView):
     """
     Retorna Todas os Contagens dos radares com ou sem uso de filtros
     """
@@ -32,7 +33,7 @@ class ContagemView(generics.ListAPIView):
     serializer_class = ContagensSerializer
 
 
-class TrajetosView(generics.ListAPIView):
+class TrajetosView(LoggingMixin, generics.ListAPIView):
     """
     Retorna Todas os Trajetos com ou sem uso de filtros
     """
@@ -42,7 +43,7 @@ class TrajetosView(generics.ListAPIView):
     serializer_class = TrajetosSerializer
 
 
-class ViagensView(generics.ListAPIView):
+class ViagensView(LoggingMixin, generics.ListAPIView):
     """
     Retorna Todas as viagens com ou sem uso de filtros
     """
