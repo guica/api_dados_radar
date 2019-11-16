@@ -8,6 +8,26 @@
 
 Slides - https://docs.google.com/presentation/d/1Wh3uLDF66x8tkwyF42uuZY1rVi9e6LFNCizsGW94UvQ/edit?usp=sharing
 
+## Funcionalidades
+
+- Protocolo HTTPS
+- Saídas em JSON e XML
+- Versionamentode API (v1,v2,...)
+- Autenticação com OAuth2.0
+- Log de controle de armazenamento
+- Funcionamento Assíncrono
+- Paginação
+- Throttle/Rate Limiting
+- Agnóstica a plataforma, multiplataforma, roda em windows, linux e Mac
+- Serviço funciona em banco SQL (postgres, mysql ou sqlite) ou NoSQL (mongoDB)
+- API das bases: radares, 
+- Filtros
+- Cache
+- Frontend
+
+- Site (cadastramento de usuário, administrador, acesso a tipos de usuários)
+- API
+
 ## Acesso para o Ambiente de homologação
 
 API - http://radartona.portalretina.com/docs/
@@ -53,6 +73,12 @@ Crie um super-usuário:
 
 Entre em http://localhost:8000/admin e faça seu login. Você pode usar essa interface para navegar e explorar os dados. Depois, entre em http://localhost:8000/docs para ver a documentação da API. 
 
+## Desenvolvimento
+
+## Homologação
+
+## Produção
+
 ## Arquitetura
 
 ### [MTV](https://towardsdatascience.com/working-structure-of-django-mtv-architecture-a741c8c64082) (Model, View e Template) estrutura de componentização no framework Django
@@ -65,6 +91,11 @@ Entre em http://localhost:8000/admin e faça seu login. Você pode usar essa int
 ## TODO
 
 - Melhorar Segurança (integrar OAuth 2.0, HTTPS, Logs de uso e Throttle)
+    - Logs (check)
+    - throttle (check)
+    - OAuth 2.0
+    - HTTPS
+- Testes Automáticos
 - Melhorar Escalabilidade (testes de estresse na solução)
 - Estruturação de dados (descrições dos parâmetros, rever estrutura de dados e sanity checks)
 

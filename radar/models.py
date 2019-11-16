@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+import math
+
 
 TIPO_CHOICES = (
         (0, 'Carro'),
@@ -10,6 +12,28 @@ TIPO_CHOICES = (
         (2, u'Caminhão'),
         (3,'Outro')
     )
+
+def distance(origin, destination):
+    """
+    input: 
+        - origin (tuple)
+        - destination (tuple)
+    output:
+        - distance (float)
+    """
+    lat1, lon1 = origin
+    lat2, lon2 = destination
+    radius = 6371 # km
+
+    dlat = math.radians(lat2-lat1)
+    dlon = math.radians(lon2-lon1)
+    a = math.sin(dlat/2) * math.sin(dlat/2) + math.cos(math.radians(lat1)) \
+        * math.cos(math.radians(lat2)) * math.sin(dlon/2) * math.sin(dlon/2)
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+    d = radius * c
+
+    return d
+
 
 class BaseRadares(models.Model):
     
@@ -35,12 +59,33 @@ class BaseRadares(models.Model):
     emme_gid    = models.IntegerField(blank=True, null=True)
     mdc_gid     = models.IntegerField(blank=True, null=True)
 
+    def latitude(self):
+        try:
+            return float(self.latitude_l.split(' ')[0][1:])
+        except Exception as x:
+            print(x)
+            return ''
+
+    def longitude(self):
+        try:
+            return float(self.latitude_l.split(' ')[1][:-1])
+        except Exception as x:
+            print(x)
+            return ''
+
+    def contagem(self, hora, dia):
+        pass
+
+    def autuacoes(self, mes):
+        pass
+
     def __unicode__(self):
         return u'%s'% self.id
 
     class Meta:
         # managed = False
         db_table = 'base_radares'
+
 
 class Trajetos(models.Model):
 
@@ -54,6 +99,15 @@ class Trajetos(models.Model):
     destino     = models.IntegerField(blank=True, null=True)
     v0          = models.IntegerField(blank=True, null=True)
     v1          = models.IntegerField(blank=True, null=True)
+
+    def distancia(self):
+        pass
+
+    def tempo(self):
+        pass
+
+    def velocidade_media(self):
+        pass
 
     def __unicode__(self):
         return u'%s'% self.id
@@ -73,12 +127,25 @@ class Viagens(models.Model):
     final       = models.IntegerField(blank=True, null=True)
     tipo        = models.IntegerField(blank=True, null=True, choices=TIPO_CHOICES)
 
+    def distancia(self):
+        try:
+            ri=BaseRadares.objects.get(codigo__icontains=self.inicio)
+            rf=BaseRadares.objects.get(codigo__icontains=self.final)
+            return distance((ri.latitude(),ri.longitude()), (rf.latitude(),rf.longitude() ))
+        except Exception as x:
+            print(x)
+            return ''
+
+    def tempo(self):
+        pass
+
     def __unicode__(self):
         return u'%s'% self.id
 
     class Meta:
         # managed = False
         db_table = 'viagens'
+
 
 class Contagens(models.Model):
 
@@ -90,6 +157,20 @@ class Contagens(models.Model):
     contagem    = models.IntegerField(blank=True, null=True)
     autuacoes   = models.IntegerField(blank=True, null=True)
     placas      = models.IntegerField(blank=True, null=True)
+
+    def acuracia(self):
+        try:
+            return round(float(self.placas)/float(self.contagem), 2)
+        except Exception as x:
+            print(x)
+            return '-'
+
+    def autuacoes_por_placas(self):
+        try:
+            return round(float(self.autuacoes)/float(self.placas), 2)
+        except Exception as x:
+            print(x)
+            return '-'        
 
     def __unicode__(self):
         return u'%s'% self.id

@@ -29,19 +29,25 @@ class ContagensFilter(django_filters.rest_framework.FilterSet):
 	ano = django_filters.NumberFilter(field_name='data_e_hora', lookup_expr='year')
 	mes = django_filters.NumberFilter(field_name='data_e_hora', lookup_expr='month')
 	dia = django_filters.NumberFilter(field_name='data_e_hora', lookup_expr='day')
+	hora = django_filters.NumberFilter(field_name='data_e_hora', lookup_expr='hour')
 
 	class Meta:
 		model = Contagens
-		fields = ['ano', 'mes', 'dia', 'localidade', 'tipo']
+		fields = ['ano', 'mes', 'dia', 'hora', 'localidade', 'tipo', ]
 
 
 class ViagensFilter(django_filters.rest_framework.FilterSet):
 	class Meta:
 		model = Viagens
-		fields = ['tipo','inicio','final']
+		fields = ['id','tipo','inicio','final']
 
 
 class TrajetosFilter(django_filters.rest_framework.FilterSet):
+
+	ano = django_filters.NumberFilter(field_name='data_inicio', lookup_expr='year')
+	mes = django_filters.NumberFilter(field_name='data_inicio', lookup_expr='month')
+	dia = django_filters.NumberFilter(field_name='data_inicio', lookup_expr='day')
+	hora = django_filters.NumberFilter(field_name='data_inicio', lookup_expr='hour')
 
 	min_v0 = django_filters.NumberFilter(field_name="v0", lookup_expr='gte')
 	max_v0 = django_filters.NumberFilter(field_name="v0", lookup_expr='lte')
