@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework_tracking',
     'rest_framework_cache',
     'rest_framework.authtoken',
+    'sign_up',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +66,9 @@ ROOT_URLCONF = 'api_dados_radares.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR + '/templates/',
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

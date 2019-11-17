@@ -30,5 +30,6 @@ urlpatterns = [
     url(r'^docs/$', schema_view),
     url(r'^api/v1/',include('api.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^', include('sign_up.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
