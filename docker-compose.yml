@@ -39,6 +39,12 @@ services:
     depends_on:
       - web
 
+  dash:
+    restart: always
+    build: dash
+    command: 'python app.py'
+    ports:
+      - '8050:8050'
 
   # celeryworker:
   #   <<: *django

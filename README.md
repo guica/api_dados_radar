@@ -4,35 +4,50 @@
 
 ## Apresentação
 
+### API Swagger
 ![apresentacao](https://github.com/guica/api_dados_radar/blob/master/media/Swagger-UI.gif)
+
+#### Funcionalidades
+- Saídas em JSON, XML e CSV
+- Versionamentode API (v1,v2,...)
+- Autenticação com Token
+- Log de controle de armazenamento
+- Paginação
+- Throttle/Rate Limiting
+- Filtros e ordenação
+- Cache
+- API das bases: radares, contagem, trajetos
+
+### Interface Frontend Dashboard
+![dash](https://github.com/guica/api_dados_radar/blob/master/media/Dash.gif)
+
+#### Funcionalidades
+- Navegação com Mapa
+- Interação com mapa para saber endereços e fluxo de contagem de veículos ao longo do dia
+- Filtros dinâmicos de Lote, quantidade de faixasm velocidade
+- Saiba pontos de congestionamento, vias com maior fluxo e radares com maiores e menores índices de infração
+
+### Interface Frontend CRUD
+- Cadastramento de usuário
+- Permissões e Grupos de acesso (administrador, outros)
+- Auto Cadastramento
+
+### DevOps
+- Protocolo HTTPS
+- Agnóstica a plataforma, multiplataforma, roda em windows, linux e Mac
+- Serviço funciona em banco SQL (postgres, mysql ou sqlite) ou NoSQL (mongoDB)
+
 
 Slides - https://docs.google.com/presentation/d/1Wh3uLDF66x8tkwyF42uuZY1rVi9e6LFNCizsGW94UvQ/edit?usp=sharing
 
-## Funcionalidades
-
-- Protocolo HTTPS
-- Saídas em JSON e XML
-- Versionamentode API (v1,v2,...)
-- Autenticação com OAuth2.0
-- Log de controle de armazenamento
-- Funcionamento Assíncrono
-- Paginação
-- Throttle/Rate Limiting
-- Agnóstica a plataforma, multiplataforma, roda em windows, linux e Mac
-- Serviço funciona em banco SQL (postgres, mysql ou sqlite) ou NoSQL (mongoDB)
-- API das bases: radares, 
-- Filtros
-- Cache
-- Frontend
-
-- Site (cadastramento de usuário, administrador, acesso a tipos de usuários)
-- API
 
 ## Acesso para o Ambiente de homologação
 
 API - http://radartona.portalretina.com/docs/
 
-Front - http://radartona.portalretina.com/admin/
+Front CRUD - http://radartona.portalretina.com/admin/
+
+Front Dashboard - http://radartona.portalretina.com:8050/
 
 `Usuário`: admin
 `Senha`: admin
@@ -71,13 +86,15 @@ Crie um super-usuário:
 
 `python manage.py createsuperuser`
 
-Entre em http://localhost:8000/admin e faça seu login. Você pode usar essa interface para navegar e explorar os dados. Depois, entre em http://localhost:8000/docs para ver a documentação da API. 
+Entre em http://localhost/admin e faça seu login. 
+Você pode usar essa interface para navegar e explorar os dados. 
 
-## Desenvolvimento
+API - http://localhost/docs/
 
-## Homologação
+Front CRUD - http://localhost/admin/
 
-## Produção
+Front Dashboard - http://localhost:8050/
+
 
 ## Arquitetura
 
@@ -111,6 +128,7 @@ Entre em http://localhost:8000/admin e faça seu login. Você pode usar essa int
 * Postgres
 * Sqlite3
 * Redis
+* Dash
 
 ## Autores
 
