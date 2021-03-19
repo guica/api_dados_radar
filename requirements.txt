@@ -19,7 +19,7 @@ django-filter==1.1.0
 django-flat-responsive==2.0
 django-flat-theme==1.1.4
 django-rest-swagger==2.2.0
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 djangorestframework-csv==2.1.0
 djangorestframework-simplejwt==4.1.4
 djangorestframework-xml==1.4.0
