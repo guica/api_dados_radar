@@ -25,7 +25,7 @@ idna==2.6
 ipython==8.10.0
 ipython-genutils==0.2.0
 itsdangerous==0.24
-Jinja2==2.9.6
+Jinja2==2.11.3
 jsonschema==2.6.0
 jupyter-core==4.11.2
 lxml==4.4.1
